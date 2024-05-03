@@ -1,17 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Create a Chrome Extension with TypeScript",
+  "name": "Not ByrdHouse",
   "version": "1.0.0",
-  "action": {},
+  "action": {
+    "default_popup": "public/index.html",
+    "default_icon": "public/hello_extensions.png"
+  },
   "background": {
     "service_worker": "src/background/index.js",
     "type": "module"
   },
-  "content_scripts": [  
-    {
-      "js": ["src/content.js"],
-      "matches": ["https://www.google.com/"],
-      "type": "module"
-    }],
   "permissions": ["scripting", "activeTab"]
 }

@@ -27,10 +27,12 @@
     "clean": "rm -rf dist",
     "compile": "npx tsc",
     "copy-assets": "rsync -av --exclude 'tsconfig.json' --exclude 'src' --exclude 'dist' ./ dist/",
-    "build": "npm run clean && npm run compile && npm run copy-assets"
+    "build": "npm run clean && npm run compile && npm run copy-assets",
+    "dev": "nodemon --watch src --watch public --watch manifest.json --ext ts,html,css,json,png --exec 'npm run build'"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.251",
+    "nodemon": "^3.1.0",
     "typescript": "^5.2.2"
   }
 }

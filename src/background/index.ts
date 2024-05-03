@@ -1,23 +1,17 @@
-/**
-* When chrome extension icon is clicked, append a button to
-* the DOM that when clicked sends an alert 'Hey WittCode!'
-*/
+
 chrome.action.onClicked.addListener((tab) => {
   chrome.scripting.executeScript({
     func: () => {
-      const myButton: HTMLButtonElement = document.createElement('button');
-      myButton.textContent = 'Say hi to WittCode!';
-      myButton.onclick = () => {
-        alert('Hey WittCode!')
-      }
-      document.body.appendChild(myButton);
+      document.body.style.backgroundColor='#ffa2a2'
+      console.log("Hello from content.ts")
     },
     target: {
       tabId: tab.id || 0
     }
   }).then(() => {
-    console.log('Button inserted');
+    console.log('Function executed');
   }).catch((err) => {
-    console.error('Button not inserted', err);
+    console.error('Function not executed. Error:', err);
   });
 })
+
